@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta charset="UTF-8">
+<title>麦卓科技管理平台</title>
+<style type="text/css">
+body,html{height: 100%; margin: 0 0; }
+#outer {height: 100%; overflow: hidden; position: relative;width: 100%; margin: 0 0; background: #444;}
+#outer[id] {display: table; position: static;}
+#middle {position: absolute; top: 50%;text-align:center;} /* for explorer only*/
+#middle[id] {display: table-cell; vertical-align: middle; position: static;}
+#inner {position: relative; top: -50%;width: 600px;margin: 0 auto;text-align:left;}/*for explorer only */
+
+.spinner {
+  text-align: center;
+}
+ 
+.spinner > div {
+  width: 30px;
+  height: 30px;
+  background-color: #35baf6;
+ 
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+  animation: bouncedelay 1.4s infinite ease-in-out;
+  /* Prevent first frame from flickering when animation starts */
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+ 
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+ 
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+ 
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0.0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+ 
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 40% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+</style>
+
+</head>
+<body>
+<div id="outer">
+  <div id="middle">
+    <div id="inner" class="greenBorder">
+     	<div class="spinner">
+		  <div class="bounce1"></div>
+		  <div class="bounce2"></div>
+		  <div class="bounce3"></div>
+		</div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+<!-- 加载 kindeditor -->
+<link rel="stylesheet" href="plugins/kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="plugins/kindeditor/kindeditor-all-min.js"></script>
+<script charset="utf-8" src="plugins/kindeditor/lang/zh-CN.js"></script>
+
+<!-- 加载Ext css -->
+<link href="ext-6.0.1/theme/theme-triton/theme-triton-all.css"  rel="stylesheet" type="text/css" />
+<link href="resources/Admin.css"  rel="stylesheet" type="text/css" />
+<link href="resources/app.css"  rel="stylesheet" type="text/css" />
+<link href="resources/theme-black.css"  rel="stylesheet" type="text/css" />
+
+<!-- 加载Extjs -->
+<script type="text/javascript" src="ext-6.0.1/ext-all-debug.js"></script>
+<script type="text/javascript" src="ext-6.0.1/locale/locale-zh_CN.js"></script>
+
+<!-- 加载UX -->
+<link href="ext-6.0.1/ux/classic/triton/resources/ux-all.css"  rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="ext-6.0.1/ux/classic/ux.js"></script>
+
+<!-- 加载Charts -->
+<link href="ext-6.0.1/charts/classic/triton/resources/charts-all.css"  rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="ext-6.0.1/charts/classic/charts.js"></script>
+
+<!-- 加载 APP -->
+<script type="text/javascript" src="app/App.js"></script>
+</html>

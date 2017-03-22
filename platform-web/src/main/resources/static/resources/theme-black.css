@@ -1,0 +1,90 @@
+.x-grid-cell-inner,.main-logo,p{
+    font-family: '微软雅黑' !important; 
+}
+
+.x-treelist-item-text{
+	font-family: '微软雅黑' !important; 
+	font-weight: bold !important; 
+	color: #ffffff !important; 
+}
+
+/**鼠标放在Grid行上字体加粗**/
+.x-grid-item-over{
+	font-weight: bold !important; 
+}
+/**系统Logo背景**/
+.sencha-tool-bar{
+    background-color: #2C3845;
+}
+/**panel标题栏颜色**/
+.x-panel-header-default {
+    background-image: none;
+    background-color: #2C3845;
+}
+/**panel标题栏边框颜色**/
+.x-panel-header-default {
+    font-size: 16px;
+    border: 1px solid #2C3845;
+}
+
+
+/**Window的外层边框颜色**/
+.x-window-default {
+    border-color: #2C3845;
+    -webkit-border-radius: 0 0 0 0;
+    -moz-border-radius: 0 0 0 0;
+    -ms-border-radius: 0 0 0 0;
+    border-radius: 0 0 0 0;
+}
+/**window内部边框颜色**/
+.x-window-header-default {
+    font-size: 16px;
+    border-color: #2C3845;
+    background-color: #2C3845;
+}
+/**Window标题栏背景色**/
+.x-window-header-default-top {
+    -moz-border-radius-topleft: 0;
+    -webkit-border-top-left-radius: 0;
+    border-top-left-radius: 0;
+    -moz-border-radius-topright: 0;
+    -webkit-border-top-right-radius: 0;
+    border-top-right-radius: 0;
+    -moz-border-radius-bottomright: 0;
+    -webkit-border-bottom-right-radius: 0;
+    border-bottom-right-radius: 0;
+    -moz-border-radius-bottomleft: 0;
+    -webkit-border-bottom-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding: 10px 14px 10px 14px;
+    border-width: 2px 2px 2px 2px;
+    border-style: solid;
+    background-color: #2C3845;
+}
+/**Window小图标背景颜色**/
+.x-window-header-default .x-tool-img {
+    background-color: #2C3845;
+}
+.x-btn-over.x-btn-default-small{
+	border-color:  #2C3845;
+	background-color:  #2C3845;
+	background-image: none;
+}
+.x-btn-default-small {
+   border-color:  #2C3845;
+	background-color:  #2C3845;
+	background-image: none;
+}
+.x-btn.x-btn-menu-active.x-btn-default-small, .x-btn.x-btn-pressed.x-btn-default-small {
+    border-color:  #2C3845;
+	background-color:  #2C3845;
+	background-image: none;
+}
+.x-btn-focus.x-btn-default-small{
+	background-image: none;
+	background-color: #2C3845;
+	border-color:  #2C3845;
+}
+.x-panel-header-default .x-tool-img {
+    background-color: #2C3845;
+}

@@ -1,0 +1,47 @@
+
+/**APP CSS**/
+
+.array-grid-buy-col:before {
+	font: 18px/1 FontAwesome;
+  	color: #32404e;
+  	content: "\f044";
+}
+
+.array-grid-sell-col:before {
+	font: 18px/1 FontAwesome;
+	color: #dd6550;
+	content: "\f014"
+}
+
+.array-grid-alert-col:before {
+	font: 18px/1 FontAwesome;
+	color: #ffc839;
+	content: "\f071"
+}
+
+.cell-editing-delete-row:before {
+	font: 16px/1 FontAwesome;
+	color: #dd6550;
+	content: "\f056"
+}
+.icon-refresh:before {
+  font: 18px/1 FontAwesome;
+  color: #dd6550;
+  content: "\f021";
+}
+.icon-eye-open:before {
+  content: "\f06e";
+  font: 18px/1 FontAwesome;
+  color: #ffc839;
+}
+.icon-repeat:before {
+  content: "\f01e";
+  font: 18px/1 FontAwesome;
+  color: #dd6550;
+}
+
+.icon-check:before {
+  content: "\f046";
+  font: 18px/1 FontAwesome;
+  color: #009900;
+}
