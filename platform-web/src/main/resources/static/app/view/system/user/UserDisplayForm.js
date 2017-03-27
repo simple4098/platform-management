@@ -1,3 +1,4 @@
+console.log("==============>2"+Ext.requestIP)
 Ext.define('Admin.view.system.user.UserDisplayForm', {
     extend: 'Admin.ux.form.FormPanel',
     xtype: 'user-display-form',
@@ -62,7 +63,7 @@ Ext.define('Admin.view.system.user.UserDisplayForm', {
 						    fields: ['id', 'dept_name'],
 						    proxy: {
 						        type: 'ajax',
-						        url: '/dept/json',
+						        url: Ext.requestIP+'/dept/json',
 						        reader: {
 						            type: 'json'
 						        }
@@ -97,7 +98,7 @@ Ext.define('Admin.view.system.user.UserDisplayForm', {
 	        	 fields: ['id','role_name'],
 	        	 proxy: {
 			        type: 'ajax',
-			        url: '/role/json',
+			        url: Ext.requestIP+'/role/json',
 			        reader: {
 			            type: 'json'
 			        }

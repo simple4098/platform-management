@@ -6,6 +6,7 @@ import com.xiaoyu.biz.dto.MenuDto;
 import com.xiaoyu.biz.dto.Msg;
 import com.xiaoyu.biz.service.IMenuService;
 import com.xiaoyu.biz.service.IUserService;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -38,6 +39,25 @@ public class MenuController {
             return menuList;
         }
         return null;
+    }
+    /**
+     * 获取菜单树,用户根据用户权限加载菜单
+     */
+    @RequestMapping("/list")
+    public Object list(){
+        List<MenuDto> menuTrees = menuService.findMenuTreeByPid("0");
+       return  menuTrees;
+
+    }
+    @RequestMapping("/json")
+    public Object json(){
+        List<MenuDto> menuTrees = menuService.findMenuTreeByPid("0");
+       return  menuTrees;
+    }
+    @RequestMapping("/add")
+    public Object add(Menu menu){
+        menuService.saveMenu(menu);
+        return new Msg(true);
     }
     /**
      * 是否存在此viewType

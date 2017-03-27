@@ -24,10 +24,10 @@ public class Menu {
     private Date createTime;
     private String iconCls;
     private String rowCls;
-    private char  deep;
+    private String  deep;
     private int sort;
     private String action;
-    private char status;
+    private String status;
 
     @Id
     @Column(name = "id")
@@ -97,13 +97,6 @@ public class Menu {
         this.rowCls = rowCls;
     }
 
-    public char getDeep() {
-        return deep;
-    }
-
-    public void setDeep(char deep) {
-        this.deep = deep;
-    }
 
     public int getSort() {
         return sort;
@@ -121,11 +114,19 @@ public class Menu {
         this.action = action;
     }
 
-    public char getStatus() {
+    public String getDeep() {
+        return deep;
+    }
+
+    public void setDeep(String deep) {
+        this.deep = deep;
+    }
+
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(char status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 }

@@ -27,4 +27,7 @@ public interface IMenuDao extends JpaRepository<Menu,String>{
     List<Menu> findMenus(String uid);
 
     Menu findByViewType(String view);
+
+    @Query(value = " SELECT ext.*,ext2.text ptext FROM ext_menu ext  LEFT JOIN ext_menu ext2 ON ext.pid = ext2.id  WHERE ext.pid =?1 ORDER BY  ext.sort ASC ",nativeQuery = true)
+    List<Menu> findMenusByPid(String pid);
 }

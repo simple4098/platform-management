@@ -3,6 +3,9 @@
  * placed in the Admin.Application class.
  */
 Ext.application({
+
+
+
     name: 'Admin',
 
     extend: 'Admin.Application',
@@ -120,3 +123,5 @@ Ext.require([
 	'Admin.view.widgets.WidgetForm',
 	'Admin.view.widgets.WidgetKindEditor'
 ]);
+var p = Ext.create('IPPath');
+Ext.requestIP = p.requestIP;

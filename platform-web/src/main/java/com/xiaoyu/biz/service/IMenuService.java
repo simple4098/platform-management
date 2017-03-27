@@ -20,4 +20,8 @@ public interface IMenuService {
     boolean hasViewType(String view);
 
     List<MenuDto> findMenuByUserId(String userId);
+
+    List<MenuDto> findMenuTreeByPid(String pid);
+
+    void saveMenu(Menu menu);
 }

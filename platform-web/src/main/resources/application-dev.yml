@@ -10,7 +10,7 @@ logging:
   level:
     org.springframework: ERROR
     org.apache.catalina: ERROR
-    com.yql.framework: DEBUG
+    com.xiaoyu.biz: DEBUG
 
 spring:
   datasource:

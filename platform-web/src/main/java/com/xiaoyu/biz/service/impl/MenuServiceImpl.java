@@ -18,6 +18,7 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * <p>  </p>
@@ -51,7 +52,6 @@ public class MenuServiceImpl implements IMenuService {
             BeanUtils.copyProperties(m,menuDto);
             menuDtoList.add(menuDto);
         }
-        log.debug("==================菜单==============\n"+JSON.toJSONString(menuDtoList));
         return menuDtoList;
     }
 
@@ -99,5 +99,24 @@ public class MenuServiceImpl implements IMenuService {
 
         }
         return menus;
+    }
+
+    @Override
+    public List<MenuDto> findMenuTreeByPid(String pid) {
+        List<Menu> menuList = menuDao.findMenusByPid(pid);
+        List<MenuDto> list = new ArrayList<>();
+        MenuDto menuDto = null;
+        for(Menu m : menuList){
+            menuDto = new MenuDto();
+            BeanUtils.copyProperties(m,menuDto);
+            list.add(menuDto);
+        }
+        return list;
+    }
+
+    @Override
+    public void saveMenu(Menu menu) {
+        menu.setId(UUID.randomUUID().toString());
+        menuDao.save(menu);
     }
 }

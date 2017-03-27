@@ -69,23 +69,23 @@ Ext.define('Admin.view.system.menu.MenuForm', {
             }
         },*/
         { xtype: 'textfield', name:'text', fieldLabel: '菜单名称', emptyText:'输入菜单名称', allowBlank :false },
-        { xtype: 'textfield', name:'view_type', fieldLabel: '视图'},
+        { xtype: 'textfield', name:'viewType', fieldLabel: '视图'},
         { xtype: 'textfield', name:'action', fieldLabel: '资源' },
         { xtype: 'textfield', name:'sort', fieldLabel: '排序',value:'0', allowBlank :false },
         { 	
         	xtype: 'combo',
        		fieldLabel: '选择图标',
-       		name:'icon_cls',
+       		name:'iconCls',
         	queryMode: 'remote',
         	minChars: 2,
-		    displayField: 'icon_name',
+		    displayField: 'iconName',
 		    allowBlank:true,
-		    valueField: 'icon_name',
+		    valueField: 'iconName',
 		    store : Ext.create('Ext.data.Store', {
-			    fields: ["id",'icon_name'],
+			    fields: ["id",'iconName'],
 			    proxy: {
 			        type: 'ajax',
-			        url: '/icon/json',
+			        url:'/icon/json',
 			        reader: {
 			            type: 'json'
 			        }
@@ -96,13 +96,13 @@ Ext.define('Admin.view.system.menu.MenuForm', {
                 '<ul class="x-list-plain">',
                     '<tpl for=".">',
                         '<li class="x-boundlist-item">',
-                            '<i class="{icon_name}"></i>&nbsp;&nbsp;{icon_name}',
+                            '<i class="{iconName}"></i>&nbsp;&nbsp;{iconName}',
                         '</li>',
                     '</tpl>',
                 '</ul>'
             ]
         },
-        { xtype: 'textfield', name:'row_cls', fieldLabel: '附加样式' },
+        { xtype: 'textfield', name:'rowCls', fieldLabel: '附加样式' },
          {
             xtype: 'radiogroup',
             fieldLabel: '状态',
