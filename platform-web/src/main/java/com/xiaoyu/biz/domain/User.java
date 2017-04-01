@@ -15,10 +15,8 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "ext_user")
-public class User {
+public class User extends Domain {
 
-    private String id;
-    private Date createDate ;
     private String userId;
     private String userPwd;
     private String userName;
@@ -110,23 +108,4 @@ public class User {
         this.shortPinyin = shortPinyin;
     }
 
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid")
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
 }

@@ -1,6 +1,9 @@
 package com.xiaoyu.biz.service;
 
 import com.xiaoyu.biz.domain.User;
+import com.xiaoyu.biz.dto.UserDto;
+import com.xiaoyu.biz.support.page.PageModel;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,4 +19,8 @@ public interface IUserService {
     User findById(String userId);
 
     User getSessionUser(HttpServletRequest request);
+
+    void updateOrSaveUser(UserDto userDto);
+
+    PageModel<UserDto> findUserPage(UserDto userDto, Pageable pageable);
 }

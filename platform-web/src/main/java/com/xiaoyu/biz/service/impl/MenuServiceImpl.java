@@ -1,6 +1,5 @@
 package com.xiaoyu.biz.service.impl;
 
-import com.alibaba.fastjson.JSON;
 import com.xiaoyu.biz.dao.IMenuDao;
 import com.xiaoyu.biz.dao.IUserRoleDao;
 import com.xiaoyu.biz.domain.Menu;
@@ -16,7 +15,6 @@ import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -40,7 +38,7 @@ public class MenuServiceImpl implements IMenuService {
         List<MenuDto> menuDtoList = new ArrayList<>();
         List<Menu> menus = new ArrayList<>();
         for(String mid : roleMenus){
-            Menu menu = menuDao.findByPidAndId(pid, mid);
+            Menu menu = menuDao.findByStatusAndPidAndIdOrderBySortDesc(1,pid, mid);
             if (menu!=null){
                 menus.add(menu);
             }
@@ -93,8 +91,6 @@ public class MenuServiceImpl implements IMenuService {
                     menu2.setLeaf(true);
                 }
                 menu.setChildren(menus2);
-            }else {
-                menu.setChildren(null);
             }
 
         }

@@ -1,4 +1,4 @@
-/*
+package com.xiaoyu.biz.daoaload;/*
 package com.xiaoyu.biz.daoaload;
 
 import com.jfinal.plugin.ehcache.IDataLoader;

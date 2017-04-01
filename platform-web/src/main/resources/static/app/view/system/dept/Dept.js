@@ -20,8 +20,8 @@ Ext.define('Admin.view.system.dept.Dept', {
     },
  	columns: [
 	 	{ xtype: 'rownumberer',width:80,text:'行号'},
-	 	{ xtype:'gridcolumnview', text: '部门名称', dataIndex: 'dept_name'}, 
-	 	{ xtype:'gridcolumnview',text: '职能描述', dataIndex: 'dept_desc'}, 
+	 	{ xtype:'gridcolumnview', text: '部门名称', dataIndex: 'deptName'},
+	 	{ xtype:'gridcolumnview',text: '职能描述', dataIndex: 'deptDesc'},
 	    {
 	        menuDisabled: true,
 	        sortable: false,

@@ -1,3 +1,3 @@
 Ext.define("IPPath",{
-    requestIP:'http://localhost:8080'
+    requestIP:'http://192.168.0.166:8080/puser/'
 });

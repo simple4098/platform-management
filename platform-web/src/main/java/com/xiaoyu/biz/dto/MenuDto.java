@@ -2,6 +2,7 @@ package com.xiaoyu.biz.dto;
 
 import com.xiaoyu.biz.domain.Menu;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,7 +12,7 @@ import java.util.List;
  * @version: v1.0.0
  */
 public class MenuDto extends Menu{
-    private List<MenuDto> children;
+    private List<MenuDto> children = new ArrayList<>();
     private boolean expanded = false;
 
     public List<MenuDto> getChildren() {

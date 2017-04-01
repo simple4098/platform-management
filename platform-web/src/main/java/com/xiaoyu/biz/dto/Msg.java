@@ -3,6 +3,7 @@ package com.xiaoyu.biz.dto;
 public class Msg {
 	private boolean success;
 	private String msg;
+	private String status;
 	private Object ext;
 	
 	public Msg(boolean success, String msg, Object ext) {
@@ -14,7 +15,6 @@ public class Msg {
 
 	public Msg() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Msg(boolean success, String msg) {
@@ -52,4 +52,11 @@ public class Msg {
 		this.ext = ext;
 	}
 
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 }

@@ -26,7 +26,7 @@ Ext.define('Admin.view.authentication.AuthenticationController', {
 				var treeStore = Ext.getCmp('navigationTreeListId').getStore();
 				if(treeStore && treeStore.getCount()==0){
 					treeStore.reload();
-					me.loadMeInfo();
+					/*me.loadMeInfo();*/
 				}
 			},
 			failure:function(form,action){
@@ -59,7 +59,7 @@ Ext.define('Admin.view.authentication.AuthenticationController', {
     /**
      * 加载消息
      */
-    loadMeInfo : function(){
+   /* loadMeInfo : function(){
 		Ext.Ajax.request({
 		     url: '/msg/getmemsg',
 		     success: function(response, opts) {
@@ -90,5 +90,5 @@ Ext.define('Admin.view.authentication.AuthenticationController', {
 		    	
 		     }
 		});
-	}
+	}*/
 });

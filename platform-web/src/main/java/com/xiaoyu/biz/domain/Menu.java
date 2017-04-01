@@ -27,7 +27,8 @@ public class Menu {
     private String  deep;
     private int sort;
     private String action;
-    private String status;
+    //1-启用,0-禁用
+    private int status;
 
     @Id
     @Column(name = "id")
@@ -122,11 +123,11 @@ public class Menu {
         this.deep = deep;
     }
 
-    public String getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 }

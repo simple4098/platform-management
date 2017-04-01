@@ -188,8 +188,7 @@ Ext.define('Admin.view.main.MainController', {
 		    	    	 var obj = Ext.decode(response.responseText);
 		    	    	 if(obj.success){
 		    	    	 	 var user = obj.ext;
-		    	    		 viewModel.set('userName',user.user_name);
-		    	    		// Ext.getCmp('meId').getViewModel().set('userName',user.user_name);
+		    	    		 viewModel.set('userName',user.userName);
 		    	    		 myMask.hide();
 		    	    	 }
 		    	     },
@@ -331,25 +330,22 @@ Ext.define('Admin.view.main.MainController', {
     		
     		listeners:{
     			show:function(w,opts){
-    				
     				var form = this.down('form');
     				var roleTage = form.down('tagfield[id=role_id]');
     				roleTage.getStore().reload();
     				form.remove( form.down('textfield[id=user_pwd]'));
-    				
     				var dept = form.down("combo[id=dept_id]");
     				dept.getStore().reload();
-    				
     				form.getForm().load({
                        url: '/user/getMe',
                        waitMsg:'加载中...',
                        params: {},
-                      success:function(){
-                    	    form.down('textfield[id=user_id]').setReadOnly(true);
-                       },
+                     /* success:function(){
+                    	    form.down('textfield[name=userId]').setReadOnly(true);
+                       },*/
                       failure: function(form, action) {
-                           if(action.result.msg!=undefined){
-								Ext.Msg.alert("提示", "<font color=red>"+action.result.msg+"!</font>");
+                           if(action.result.message!=undefined){
+								Ext.Msg.alert("提示", "<font color=red>"+action.result.message+"!</font>");
 							}else{
                            		Ext.Msg.alert("提示", "<font color=red>加载出错,请刷新页面重试!</font>");
 							}

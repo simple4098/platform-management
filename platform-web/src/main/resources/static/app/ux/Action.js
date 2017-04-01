@@ -2,49 +2,111 @@
  * 公共的表单提方法
  */
 Ext.define("Admin.ux.Action",{
+    /**
+     *
+     * @param {} formObj   表单的Form对象
+     * @param {} _url      提交的URL
+     * @param {} grid      保存成功后要刷新的Grid
+     * @param {} win       保存成功后要关闭的window
+     */
+    submit:function(formObj,_url,grid,win,extValue){
+        var me = this;
+        var values = formObj.getFieldValues();
+        if(extValue){
+            values = Ext.Object.merge(values,extValue);
+        }
+        formObj.submit({
+            waitMsg:'正在提交...',
+            clientValidation: true,
+            url:_url,
+            params:values,
+            success:function(form,action){
+                if(action.result.msg!=undefined){
+                    Ext.info('保存成功'+action.result.msg);
+                }else{
+                    Ext.info('保存成功');
+                }
+                if(grid){
+                    //grid.store.removeAll();
+                    grid.store.reload();
+                }
+                if(win){
+                    win.close();
+                }
+            },
+            failure:function(form,action){
+                switch (action.failureType) {
+                    case Ext.form.action.Action.CLIENT_INVALID:
+                        Ext.error('客户端验证不通过');
+                        break;
+                    default:
+                        Ext.error('保存失败,'+action.result.msg);
+                }
+            }
+        });
+    },
 	/**
-	 * 
-	 * @param {} formObj   表单的Form对象
-	 * @param {} _url      提交的URL
-	 * @param {} grid      保存成功后要刷新的Grid
-	 * @param {} win       保存成功后要关闭的window
-	 */
-	submit:function(formObj,_url,grid,win,extValue){
-	    var me = this;
-	    var values = formObj.getFieldValues();
-	    if(extValue){
-	    	values = Ext.Object.merge(values,extValue);
-	    }
-	    formObj.submit({
-			waitMsg:'正在提交...',
-			clientValidation: true,
-			url:_url,
-			params:values,
-			success:function(form,action){
-				if(action.result.msg!=undefined){
-					Ext.info('保存成功'+action.result.msg);
-				}else{
-					Ext.info('保存成功');
+	 * 'Content-Type':'application/json;charset=UTF-8'
+     * 以payload传输数据
+     */
+    ajaxPayload:function(setting){
+        var me = this;
+        var values = setting.form.getFieldValues();
+
+        if(setting.valid){
+        	//本地验证
+			for(var attr in values){
+                if(!setting.valid(values[attr])){
+                    Ext.error('客户端验证不通过');
+					return false;
 				}
-				if(grid){
-					//grid.store.removeAll();
-					grid.store.reload();
-				}
-				if(win){
-					win.close();
-				}
-			},
-			failure:function(form,action){
-					switch (action.failureType) {
-						case Ext.form.action.Action.CLIENT_INVALID:
-							Ext.error('客户端验证不通过');
-							break;
-						default:
-							Ext.error('保存失败,'+action.result.msg);
-					}
-				}	
-			});
-	},
+			}
+		}
+
+        values = JSON.stringify(values);
+
+
+        Ext.Ajax.request({
+            waitMsg:'正在提交...',
+            clientValidation: true,
+            method : setting.method,
+            headers : {
+                'Content-Type':'application/json;charset=UTF-8'
+            },
+            url : setting.url,
+            params : values,
+            success : function(response) {
+                if(!response){
+                    return;
+                }
+                var res = JSON.parse(response.responseText);
+                if(res.code==200){
+                    Ext.info('保存成功');
+                }
+                if(setting.grid){
+                    //grid.store.removeAll();
+                    setting.grid.store.reload();
+                }
+                if(setting.win){
+                    setting.win.close();
+                }
+
+            },
+            failure:function(response,action){
+                console.log("response:",response)
+                var res = JSON.parse(response.responseText);
+
+                switch (action.failureType) {
+                    case Ext.form.action.Action.CLIENT_INVALID:
+                        Ext.error('客户端验证不通过');
+                        break;
+                    default:
+                        Ext.error('保存失败,'+res.message);
+                }
+            }
+        });
+
+    },
 	/**
 	 * 
 	 * @param {} _ids  要删除的对象ID数组

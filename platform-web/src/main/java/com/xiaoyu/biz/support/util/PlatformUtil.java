@@ -1,7 +1,14 @@
 package com.xiaoyu.biz.support.util;
 
+import com.xiaoyu.biz.support.enu.KVPair;
+import com.xiaoyu.biz.support.enu.PluginType;
+import com.xiaoyu.biz.support.message.MessageSource;
+
 import javax.servlet.http.HttpServletRequest;
 import java.security.MessageDigest;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * <p> 工具类 </p>
@@ -55,5 +62,13 @@ public class PlatformUtil {
             e.printStackTrace();
             return null;
         }
+    }
+
+    /**
+     * 将枚举对象 转化为字段对象
+     * @param enums 待转化的枚举对象
+     */
+    public static List<KVPair> convertToList(PluginType[] enums) {
+        return Arrays.stream(enums).map(e -> new KVPair(e.name(), e.getValue())).collect(Collectors.toList());
     }
 }

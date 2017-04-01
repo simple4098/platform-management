@@ -57,7 +57,7 @@ Ext.define('Admin.view.main.Main', {
                     	text: '{now}'
                     }
                 },
-				{
+				/*{
                     iconCls:'x-fa fa-envelope',
                     ui: 'header',
                     href: '#msg-view',
@@ -67,14 +67,14 @@ Ext.define('Admin.view.main.Main', {
                     	 tooltip: "{message.textTip}"
                     }
                 },
-                '-',
-                {
+                '-',*/
+                /*{
                     iconCls:'x-fa fa-question',
                     ui: 'header',
                     href: '#faq',
                     hrefTarget: '_self',
                     tooltip: '帮助中心'
-                },
+                },*/
                 {
                     iconCls:'x-fa fa-lock',
                     ui: 'header',

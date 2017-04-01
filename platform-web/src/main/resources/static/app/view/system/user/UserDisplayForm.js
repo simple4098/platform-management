@@ -1,18 +1,17 @@
-console.log("==============>2"+Ext.requestIP)
 Ext.define('Admin.view.system.user.UserDisplayForm', {
     extend: 'Admin.ux.form.FormPanel',
     xtype: 'user-display-form',
     items: [
     	{	xtype:'hiddenfield',name:'id'	},
-    	{	xtype:'hiddenfield',name:'row_status'	},
+    	{	xtype:'hiddenfield',name:'rowStatus'	},
         {
             xtype: 'displayfield',
-            name:'user_id',
+            name:'userId',
             fieldLabel: '账号'
         },
         {
             xtype: 'textfield',
-            name:'user_pwd',
+            name:'userPwd',
             id:'user_pwd',
             fieldLabel: '用户密码',
             inputType: 'password',
@@ -22,7 +21,7 @@ Ext.define('Admin.view.system.user.UserDisplayForm', {
         },
         {
             xtype: 'textfield',
-            name:'user_name',
+            name:'userName',
             emptyText:'请输入姓名',
             fieldLabel: '姓名',
             minLength:2,
@@ -30,13 +29,13 @@ Ext.define('Admin.view.system.user.UserDisplayForm', {
         },
          {
             xtype: 'numberfield',
-            name:'user_phone',
+            name:'userPhone',
             fieldLabel: '手机号码',
             hideTrigger :true
         },
         {
             xtype: 'textfield',
-            name:'user_email',
+            name:'userEmail',
             allowBlank:true,
             fieldLabel: '邮箱',
             vtype:'email'
@@ -53,17 +52,17 @@ Ext.define('Admin.view.system.user.UserDisplayForm', {
 					    minChars :1,
 					    readOnly :true,
 					    emptyText:'请选择部门',
-					    displayField: 'dept_name',
-					    name:'dept_id',
+					    displayField: 'deptName',
+					    name:'deptId',
 					    id:'dept_id',
 					    allowBlank:false,
 					    forceSelection :true,
 					    valueField: 'id',
 					    store : Ext.create('Ext.data.Store', {
-						    fields: ['id', 'dept_name'],
+						    fields: ['id', 'deptName'],
 						    proxy: {
 						        type: 'ajax',
-						        url: Ext.requestIP+'/dept/json',
+						        url: '/dept/json',
 						        reader: {
 						            type: 'json'
 						        }
@@ -72,7 +71,7 @@ Ext.define('Admin.view.system.user.UserDisplayForm', {
 						}),
 						listConfig: {
 			                itemTpl: [
-			                   '<div data-qtip="{dept_desc}">{dept_name}</div>'
+			                   '<div data-qtip="{deptDesc}">{deptName}</div>'
 			                ]
 			            }
 		        	}
@@ -85,7 +84,7 @@ Ext.define('Admin.view.system.user.UserDisplayForm', {
 	        id:'role_id',
 	        readOnly :true,
 	        hidden:true,
-	        displayField: 'role_name',
+	        displayField: 'roleName',
 	        valueField: 'id',
 	     	queryMode: 'local',
 	        minChars :1,
@@ -93,12 +92,12 @@ Ext.define('Admin.view.system.user.UserDisplayForm', {
 	        editable :true,
 	        forceSelection :true,
          	filterPickList: true,
-	        name:'role_id',
+	        name:'roleId',
 	        store: Ext.create('Ext.data.Store',{
-	        	 fields: ['id','role_name'],
+	        	 fields: ['id','roleName'],
 	        	 proxy: {
 			        type: 'ajax',
-			        url: Ext.requestIP+'/role/json',
+			        url:'/role/json',
 			        reader: {
 			            type: 'json'
 			        }
@@ -108,7 +107,7 @@ Ext.define('Admin.view.system.user.UserDisplayForm', {
 	    },
         {
             xtype: 'textareafield',
-            name:'user_desc',
+            name:'userDesc',
             rows:2,
             allowBlank:true,
             value:'工作要肯拼,生活要欢乐！',

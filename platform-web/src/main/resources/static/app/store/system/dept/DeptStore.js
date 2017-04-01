@@ -3,14 +3,15 @@ Ext.define("Admin.store.system.dept.DeptStore",{
 	extend:'Admin.ux.GridStore',
 	model: 'Admin.model.system.dept.Dept',
 	alias:'store.dept-store',
-	
-	proxy: {
+
+    fields: ['deptId','deptName'],
+
+    proxy: {
         type: 'ajax',
-        url: '/dept/list',
+        url: Ext.requestIP+'/puser/department',
         reader: {
             type: 'json',
-            rootProperty : 'list',
-			totalProperty : 'totalRow'
+            rootProperty:'data'
         },
         writer : {    			
 			type : 'json'

@@ -17,17 +17,19 @@ Ext.application({
         'Admin.ux.Model',
         'Admin.ux.GridStore',
         'Admin.ux.Grid',
+        'Admin.ux.PageGrid',
         'Admin.ux.form.FormPanel',
         'Admin.ux.form.KeySearchField',
+        'Admin.ux.form.PluginSearchField',
         'Admin.ux.GridColumnView',
         'Admin.ux.ButtonColumn',
         'Admin.ux.ComboBoxTree',
         'Admin.ux.SimpleComboBoxTree',
         'Admin.ux.Util',
         'Admin.ux.form.TextEditable',
-        'Admin.ux.form.XHtmlEditor'
-        
-        
+        'Admin.ux.form.XHtmlEditor',
+        'Admin.ux.GridController'
+
     ],
     views:[
     	'Admin.view.main.Main',
@@ -65,11 +67,60 @@ Ext.application({
 Ext.require([
 	'Admin.view.system.menu.TreeMenu',
 	'Admin.view.system.menu.MenuForm',
-	'Admin.view.system.menu.MenuViewModel',
+    'Admin.view.system.menu.MenuViewModel',
 	'Admin.view.system.menu.MenuController',
-	
 	'Admin.store.system.menu.SelectMenuStore',
-	'Admin.store.system.menu.TreeMenuStore'
+    'Admin.store.system.menu.TreeMenuStore'
+]);
+//学校管理
+Ext.require([
+    'Admin.view.system.school.ExtSchool',
+    'Admin.view.system.school.SchoolViewModel',
+    'Admin.view.system.school.SchoolForm',
+    'Admin.view.system.school.SchoolController',
+    'Admin.model.system.school.School',
+    'Admin.store.system.school.ExtSchoolStore',
+	'Admin.ux.SchoolType'
+]);
+//城市联动
+Ext.require([
+    'Admin.model.system.city.City',
+    'Admin.store.system.city.ProvinceStore',
+    'Admin.store.system.city.CityStore',
+    'Admin.store.system.city.DistrictStore'
+]);
+//教职工管理
+Ext.require([
+    'Admin.view.system.employee.EmployeeForm',
+    'Admin.store.system.employee.ExtEmployeeStore',
+    'Admin.view.system.employee.EmployeeController',
+    'Admin.model.system.employee.Employee',
+    'Admin.view.system.employee.ExtEmployee'
+]);
+//插件管理
+Ext.require([
+	'Admin.view.system.plugin.Plugin',
+	'Admin.view.system.plugin.PluginForm',
+	'Admin.view.system.plugin.PluginController',
+    'Admin.model.system.plugin.Plugin',
+	'Admin.store.system.plugin.PluginStore',
+]);
+//插件授权管理
+Ext.require([
+	'Admin.view.system.pluginAuth.PluginAuth',
+	'Admin.view.system.pluginAuth.PluginAuthForm',
+	'Admin.view.system.pluginAuth.PluginAuthDisplayForm',
+	'Admin.view.system.pluginAuth.PluginAuthController',
+    'Admin.model.system.plugin.PluginAuth',
+	'Admin.store.system.plugin.PluginAuthStore',
+]);
+//插件类型
+Ext.require([
+    'Admin.view.system.pluginType.PluginType',
+    'Admin.view.system.pluginType.PluginTypeForm',
+    'Admin.view.system.pluginType.PluginTypeController',
+    'Admin.model.system.plugin.PluginType',
+    'Admin.store.system.plugin.PluginTypeStore',
 ]);
 //角色管理
 Ext.require([
@@ -106,12 +157,12 @@ Ext.require([
 	'Admin.view.system.dept.DeptForm'
 ]);
 //加载消息
-Ext.require([
+/*Ext.require([
 	'Admin.model.system.msg.Msg',
 	'Admin.store.system.msg.MsgStore',
 	'Admin.view.system.msg.Msg',
 	'Admin.view.system.msg.MsgController'
-]);
+]);*/
 //加载统计
 Ext.require([
 	'Admin.view.chart.LineChart'
@@ -119,9 +170,9 @@ Ext.require([
 
 //加载组建
 Ext.require([
-	'Admin.view.widgets.AppFormPanel',
-	'Admin.view.widgets.WidgetForm',
-	'Admin.view.widgets.WidgetKindEditor'
+	'Admin.view.widgets.AppFormPanel'
+	/*'Admin.view.widgets.WidgetForm',
+	'Admin.view.widgets.WidgetKindEditor'*/
 ]);
 var p = Ext.create('IPPath');
 Ext.requestIP = p.requestIP;
